@@ -24,13 +24,13 @@ class FileStorage:
             'Review': Review
               }
         lis = []
-        if cls.__name__ in classes:
+        if cls is None:
+            return FileStorage.__objects     
+        elif cls.__name__ in classes:
             for obj in self.__objects:
                 if cls == type(obj):
                     lis.append(obj)
             return lis
-        elif cls is None:
-            return FileStorage.__objects
 
     def new(self, obj):
         """Adds new object to storage dictionary"""
