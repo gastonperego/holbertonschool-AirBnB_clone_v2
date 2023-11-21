@@ -10,26 +10,19 @@ class FileStorage:
 
     def all(self, cls=None):
         """Returns a dictionary of models currently in storage"""
-        from models.base_model import BaseModel
-        from models.user import User
-        from models.place import Place
-        from models.state import State
-        from models.city import City
-        from models.amenity import Amenity
-        from models.review import Review
 
-        classes = {
-            'BaseModel': BaseModel, 'User': User, 'Place': Place,
-            'State': State, 'City': City, 'Amenity': Amenity,
-            'Review': Review
-              }
-        lis = []
+        classes = [ 
+            'BaseModel', 'User' ,'Place',
+            'State', 'City', 'Amenity'
+            'Review'
+        ]
+        lis = self.__objects.copy()
         if cls is None:
             return FileStorage.__objects     
         elif cls in classes:
             for obj in self.__objects:
-                if cls == type(obj):
-                    lis.append(obj)
+                if cls != type(obj):
+                    lis.pop(obj)
             return lis
 
     def new(self, obj):
