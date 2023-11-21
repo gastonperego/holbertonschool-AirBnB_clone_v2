@@ -26,9 +26,9 @@ class FileStorage:
         lis = []
         if cls is None:
             return FileStorage.__objects     
-        elif cls.__name__ in classes:
+        elif cls in classes:
             for obj in self.__objects:
-                if cls.__name__ == type(obj):
+                if cls == type(obj):
                     lis.append(obj)
             return lis
 
