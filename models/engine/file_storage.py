@@ -10,7 +10,27 @@ class FileStorage:
 
     def all(self, cls=None):
         """Returns a dictionary of models currently in storage"""
-        return FileStorage.__objects
+        from models.base_model import BaseModel
+        from models.user import User
+        from models.place import Place
+        from models.state import State
+        from models.city import City
+        from models.amenity import Amenity
+        from models.review import Review
+
+        classes = {
+            'BaseModel': BaseModel, 'User': User, 'Place': Place,
+            'State': State, 'City': City, 'Amenity': Amenity,
+            'Review': Review
+              }
+        lis = []
+        if cls.__name__ in classes:
+            for obj in self.__objects:
+                if cls == type(obj):
+                    lis.append(obj)
+            return lis
+        elif cls is None:
+            return FileStorage.__objects
 
     def new(self, obj):
         """Adds new object to storage dictionary"""
@@ -49,4 +69,10 @@ class FileStorage:
         except FileNotFoundError:
             pass
 
-
+    def delete(self, obj=None):
+        """Deletes an object from __objects"""
+        if obj is None:
+            pass
+        else:
+            if obj in self.__objects:
+                self.__objects.pop(obj)
