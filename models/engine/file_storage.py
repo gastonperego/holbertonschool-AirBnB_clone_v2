@@ -8,7 +8,6 @@ class FileStorage:
     __file_path = 'file.json'
     __objects = {}
 
-    @classmethod
     def all(self, cls=None):
         """Returns a dictionary of models currently in storage"""
         from models.base_model import BaseModel
