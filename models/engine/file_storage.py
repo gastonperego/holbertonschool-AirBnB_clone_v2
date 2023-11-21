@@ -70,9 +70,9 @@ class FileStorage:
             pass
 
     def delete(self, obj=None):
+        """Deletes an object from __objects"""
         if obj is None:
             pass
         else:
             if obj in self.__objects:
                 self.__objects.pop(obj)
-                
