@@ -28,7 +28,7 @@ class FileStorage:
             return FileStorage.__objects     
         elif cls.__name__ in classes:
             for obj in self.__objects:
-                if cls == type(obj):
+                if cls.__name__ == type(obj):
                     lis.append(obj)
             return lis
 
