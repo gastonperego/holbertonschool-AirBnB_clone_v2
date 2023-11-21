@@ -20,9 +20,9 @@ class FileStorage:
         lis.update(self.__objects)
         if cls is None:
             return FileStorage.__objects     
-        elif cls in classes:
+        elif cls.__name__ in classes:
             for obj in self.__objects:
-                if cls != type(obj):
+                if cls.__name__ != type(obj):
                     lis.pop(obj)
             return lis
 
