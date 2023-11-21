@@ -16,7 +16,8 @@ class FileStorage:
             'State', 'City', 'Amenity'
             'Review'
         ]
-        lis = self.__objects.copy()
+        lis = {}
+        lis.update(self.__objects)
         if cls is None:
             return FileStorage.__objects     
         elif cls in classes:
