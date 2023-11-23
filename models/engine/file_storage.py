@@ -21,9 +21,9 @@ class FileStorage:
         if cls is None:
             return FileStorage.__objects     
         elif cls.__name__ in classes:
-            for obj in self.__objects:
-                if cls.__name__ != type(obj):
-                    lis.pop(obj)
+            for key, obj in self.__objects.items():
+                if cls != type(obj):
+                    del lis[key]
             return lis
 
     def new(self, obj):
@@ -37,7 +37,7 @@ class FileStorage:
             temp.update(FileStorage.__objects)
             for key, val in temp.items():
                 temp[key] = val.to_dict()
-            json.dump(temp, f)
+            json.dump(temp, f, indent=4)
 
     def reload(self):
         """Loads storage dictionary from file"""
@@ -68,5 +68,6 @@ class FileStorage:
         if obj is None:
             pass
         else:
-            if obj in self.__objects:
-                self.__objects.pop(obj)
+            obj_key = f"{obj.__class__.__name__}.{obj.id}"            
+            if obj_key in self.all():
+                self.__objects.pop(obj_key)
