@@ -4,6 +4,7 @@
 
 from flask import Flask
 app = Flask(__name__)
+"""gijkjgfnjn gj jk gj kgs gkg """
 
 
 @app.route("/", strict_slashes=False)
@@ -13,3 +14,4 @@ def hello():
 
 
 app.run(host="0.0.0.0", port="5000")
+"""dkkkdkdkkd dkkdkd dk k dk d"""
