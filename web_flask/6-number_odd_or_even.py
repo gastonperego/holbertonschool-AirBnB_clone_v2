@@ -65,7 +65,7 @@ def number2(n):
         return flask.render_template("5-number.html", n=n)
     else:
         flask.abort(404)
-        
+
 
 @app.route("/number_odd_or_even/<n>", strict_slashes=False)
 def odd_or_even(n):
@@ -73,11 +73,12 @@ def odd_or_even(n):
         display different things of an html file depending on the number
         being even or odd
     """
-    
+
     if n.isnumeric():
         return flask.render_template("6-number_odd_or_even.html", n=int(n))
     else:
         flask.abort(404)
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="5000")
