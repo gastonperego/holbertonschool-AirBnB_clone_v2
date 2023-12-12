@@ -2,7 +2,7 @@
 """
     First flask web app
 """
-import flask
+
 from flask import Flask
 """
     Create app flask
@@ -43,17 +43,6 @@ def python(text):
     """
     tex = text.replace("_", " ")
     return (f"Python {tex}")
-
-
-@app.route("/number/<n>", strict_slashes=False)
-def number(n):
-    """
-        Returns C + the string given"
-    """
-    if n.isnumeric():
-        return (f"{n} is a number")
-    else:
-        flask.abort(404)
 
 
 if __name__ == '__main__':
