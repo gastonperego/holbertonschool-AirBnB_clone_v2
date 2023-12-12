@@ -35,14 +35,15 @@ def text(text):
     return (f"C {tex}")
 
 
-@app.route("/python/", defaults={"text" : "is_cool"}, strict_slashes=False)
+@app.route("/python/", defaults={"text": "is_cool"}, strict_slashes=False)
 @app.route("/python/<text>", strict_slashes=False)
 def python(text):
     """
         Returns C + the string given"
     """
     tex = text.replace("_", " ")
-    return (f"Pyhton {tex}")
+    return (f"Python {tex}")
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="5000")
