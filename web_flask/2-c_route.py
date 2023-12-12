@@ -29,9 +29,10 @@ def hello1():
 @app.route("/c/<text>", strict_slashes=False)
 def text(text):
     """
-        Returns the string "Hello HBNB!"
+        Returns C + the string given"
     """
-    return (f"C {text.replace("_", " ")}")
+    tex = text.replace("_", " ")
+    return (f"C {tex}")
 
 
 if __name__ == '__main__':
