@@ -23,7 +23,7 @@ def hello1():
     """
         Returns the string "Hello HBNB!"
     """
-    return ("HBNB!")
+    return ("HBNB")
 
 
 if __name__ == '__main__':
