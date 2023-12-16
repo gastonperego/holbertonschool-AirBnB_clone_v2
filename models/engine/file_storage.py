@@ -71,3 +71,7 @@ class FileStorage:
             obj_key = f"{obj.__class__.__name__}.{obj.id}"            
             if obj_key in self.all():
                 self.__objects.pop(obj_key)
+                
+    def close(self):
+        """closes self"""
+        return self.reload()

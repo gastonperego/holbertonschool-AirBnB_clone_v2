@@ -17,4 +17,13 @@ class State(BaseModel, Base):
         """Getter FileStorage"""
         from models.city import City
         from models import storage
-        return [city for city in storage.all(City).values() if city.state_id == self.id]
+        
+        cities = []
+        
+        for city in storage.all(City).values():
+            if city.state_id == self.id:
+                cities.append(city)
+        return cities
+
+    
+    
